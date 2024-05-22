@@ -20,8 +20,6 @@ pkgs.mkShell {
   packages = [
     pkgs.go
     pkgs.gopls
-    pkgs.gotools
-    pkgs.go-tools
     goEnv
     gomod2nix
   ];
