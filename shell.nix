@@ -23,6 +23,7 @@ pkgs.mkShell {
     pkgs.htmx-lsp
     pkgs.vscode-langservers-extracted
     pkgs.templ
+    pkgs.just
     goEnv
     gomod2nix
   ];

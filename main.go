@@ -3,26 +3,22 @@ package main
 import (
 	"errors"
 	"fmt"
-	"io"
 	"net/http"
 	"os"
 
-    "github.com/Ajlow2000/dacrib/components"
+	"github.com/Ajlow2000/dacrib/components"
 
 	"github.com/a-h/templ"
 )
 
-func getRoot(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got / request\n")
-	io.WriteString(w, "This is my website!\n")
-}
-
 
 func main() {
-	http.HandleFunc("/", getRoot)
-	http.Handle("/hello", templ.Handler(components.Hello("Alec")))
+    port := "3333"
 
-    err := http.ListenAndServe(":3333", nil)
+	http.Handle("/", templ.Handler(components.HomePage()))
+
+    fmt.Printf("Initialized server\n")
+    err := http.ListenAndServe(":" + port, nil)
     if errors.Is(err, http.ErrServerClosed) {
         fmt.Printf("server closed\n")
     } else if err != nil {
