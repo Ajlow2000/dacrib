@@ -13,7 +13,7 @@
 }:
 
 buildGoApplication {
-  packages = [ pkgs.templ ];
+  nativeBuildInputs = [ pkgs.templ ];
   preBuild = ''
     templ generate
   '';
