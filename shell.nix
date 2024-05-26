@@ -18,6 +18,8 @@ let
 in
 pkgs.mkShell {
   packages = [
+    pkgs.go
+    pkgs.gopls
     goEnv
     gomod2nix
   ];
