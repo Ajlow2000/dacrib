@@ -1,0 +1,23 @@
+package components
+
+templ Header() {
+    <header>
+        <p>Default Header</p>
+        @navBar()
+    </header>
+}
+
+templ navBar() {
+    <div>
+        @navButton("Home")
+        @navButton("Articles")
+        @navButton("Experience")
+        @navButton("About")
+    </div>
+}
+
+templ navButton(label string) {
+    <button type="button">
+        {label}
+    </button>
+}
