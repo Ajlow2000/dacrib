@@ -1,12 +1,12 @@
 package handlers
 
 import (
-	"io"
 	"net/http"
+
+	"github.com/Ajlow2000/dacrib/components"
+	"github.com/a-h/templ"
 )
 
-
-func Experience(w http.ResponseWriter, r *http.Request) {
-    io.WriteString(w, "In EXPERIENCE page")
+func Experience() http.Handler {
+    return templ.Handler(components.Experience())
 }
-

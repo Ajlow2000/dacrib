@@ -10,13 +10,12 @@ import (
 )
 
 func main() {
-
     port := "3333"
 
-    http.HandleFunc("/", handlers.Home)
-    http.HandleFunc("/about", handlers.About)
-    http.HandleFunc("/articles", handlers.Articles)
-    http.HandleFunc("/experience", handlers.Experience)
+    http.Handle("/", handlers.Home())
+    http.Handle("/about", handlers.About())
+    http.Handle("/articles", handlers.Articles())
+    http.Handle("/experience", handlers.Experience())
 
     fmt.Printf("Initialized server\n")
     err := http.ListenAndServe(":" + port, nil)

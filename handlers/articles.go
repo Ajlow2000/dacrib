@@ -1,12 +1,13 @@
 package handlers
 
 import (
-	"io"
 	"net/http"
+
+	"github.com/Ajlow2000/dacrib/components"
+	"github.com/a-h/templ"
 )
 
-
-func Articles(w http.ResponseWriter, r *http.Request) {
-    io.WriteString(w, "in ARTICLES page")
+func Articles() http.Handler {
+    return templ.Handler(components.Articles())
 }
 

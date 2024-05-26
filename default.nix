@@ -13,6 +13,10 @@
 }:
 
 buildGoApplication {
+  nativeBuildInputs = [ pkgs.templ ];
+  preBuild = ''
+    templ generate
+  '';
   pname = "dacrib";
   version = "0.1";
   pwd = ./.;
