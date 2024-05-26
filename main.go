@@ -3,19 +3,20 @@ package main
 import (
 	"errors"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
-
-	"github.com/Ajlow2000/dacrib/handlers"
-
-	"github.com/a-h/templ"
 )
 
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	io.WriteString(w, "Hello world!")
+}
 
 func main() {
     port := "3333"
 
-	http.Handle("/", templ.Handler(handlers.Home()))
+
+    http.HandleFunc("/", helloHandler)
 	// http.Handle("/articles", nil)
 	// http.Handle("/experience", nil)
 	// http.Handle("/about", nil)
