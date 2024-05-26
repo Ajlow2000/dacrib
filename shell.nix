@@ -20,6 +20,10 @@ pkgs.mkShell {
   packages = [
     pkgs.go
     pkgs.gopls
+    pkgs.htmx-lsp
+    pkgs.vscode-langservers-extracted
+    pkgs.templ
+    pkgs.just
     goEnv
     gomod2nix
   ];
