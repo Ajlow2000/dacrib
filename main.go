@@ -13,6 +13,7 @@ func main() {
     port := "3333"
 
     http.Handle("/", handlers.Home())
+    http.Handle("/home", http.RedirectHandler("/", 308))
     http.Handle("/about", handlers.About())
     http.Handle("/articles", handlers.Articles())
     http.Handle("/experience", handlers.Experience())

@@ -1,5 +1,9 @@
 package components
 
+
+import (
+)
+
 templ Header() {
     <header>
         <p>Default Header</p>
@@ -8,16 +12,20 @@ templ Header() {
 }
 
 templ navBar() {
-    <div>
-        @navButton("Home")
-        @navButton("Articles")
-        @navButton("Experience")
-        @navButton("About")
-    </div>
+    <nav>
+        <ul>
+            <li>@navButton("Home", templ.SafeURL("/home"))</li>
+            <li>@navButton("Articles", templ.SafeURL("/articles"))</li>
+            <li>@navButton("Experience", templ.SafeURL("/experience"))</li>
+            <li>@navButton("About", templ.SafeURL("/about"))</li>
+        </ul>
+    </nav>
 }
 
-templ navButton(label string) {
-    <button type="button">
-        {label}
-    </button>
+templ navButton(label string, link templ.SafeURL) {
+    <a href={ link }>
+        <button type="button">
+            {label}
+        </button>
+    </a>
 }
