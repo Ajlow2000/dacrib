@@ -6,19 +6,34 @@ import (
 
 templ Header() {
     <header>
-        <p>Default Header</p>
         @navBar()
     </header>
 }
 
+css navBarFlexBox() {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+css siteNavEntriesFlexBox() {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
 templ navBar() {
-    <nav>
-        <ul>
-            <li>@navButton("Home", templ.SafeURL("/home"))</li>
-            <li>@navButton("Articles", templ.SafeURL("/articles"))</li>
-            <li>@navButton("Experience", templ.SafeURL("/experience"))</li>
-            <li>@navButton("About", templ.SafeURL("/about"))</li>
-        </ul>
+    <nav class={ navBarFlexBox() }>
+        @navButton("Home", templ.SafeURL("/home"))
+
+        <div class={ siteNavEntriesFlexBox() }>
+            @navButton("Articles", templ.SafeURL("/articles"))
+            @navButton("Experience", templ.SafeURL("/experience"))
+            @navButton("About", templ.SafeURL("/about"))
+        </div>
     </nav>
 }
 

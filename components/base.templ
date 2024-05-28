@@ -1,5 +1,22 @@
 package components
 
+css baseDocFlexBox() {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+css bodyCSS() {
+    flex-grow: 1;
+    background-color: blue;
+}
+
+css footerCSS() {
+    flex-shrink: 0;
+    background-color: green;
+}
+
 templ baseDoc(docTitle string) {
     <html lang="en">
 
@@ -10,13 +27,18 @@ templ baseDoc(docTitle string) {
         <script src="../web/htmx_2.0.0-beta4.min.js"></script>
     </head>
 
-    @Header()
+    <div class={ baseDocFlexBox() }>
+        @Header()
 
-    <body>
-        { children... }
-    </body>
+        <body class={ bodyCSS() }>
+            { children... }
+        </body>
 
-    @Footer()
+        <footer class={ footerCSS() }>
+            <p>Author: Hege Refsnes</p>
+            <p><a href="mailto:hege@example.com">hege@example.com</a></p>
+        </footer>
+    </div>
 
     </html>
 }
