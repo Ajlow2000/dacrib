@@ -13,13 +13,16 @@ func main() {
 
     r.Use(middleware.Logger)
 
-    r.Get("/", handlers.Home());
-    r.Get("/home", handlers.Home());
-    r.Get("/articles", handlers.Articles());
-    r.Get("/experience", handlers.Experience());
-    r.Get("/about", handlers.About());
+    r.Get("/", handlers.Home())
+    r.Get("/home", handlers.Home())
+    r.Get("/articles", handlers.Articles())
+    r.Get("/articles/{title}", handlers.GetArticle())
+    r.Get("/experience", handlers.Experience())
+    r.Get("/about", handlers.About())
 
-    r.NotFound(handlers.NotFound());
+
+
+    r.NotFound(handlers.NotFound())
 
     http.ListenAndServe(":3333", r)
 }
