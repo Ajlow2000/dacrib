@@ -40,12 +40,9 @@ schema = 3
   [mod."github.com/gabriel-vasile/mimetype"]
     version = "v1.4.4"
     hash = "sha256-hGidjPQg6zXZPefto6cdRk4GYwjvbsQK+4PXs9nGsTs="
-  [mod."github.com/gin-contrib/sse"]
-    version = "v0.1.0"
-    hash = "sha256-zYbMTao+1F+385Lvsba9roLmmt9eYqr57sUWo0LCVhw="
-  [mod."github.com/gin-gonic/gin"]
-    version = "v1.10.0"
-    hash = "sha256-esJasHrJtuTBwGPGAoc/XSb428J8va+tPGcZ0gTfsgc="
+  [mod."github.com/go-chi/chi/v5"]
+    version = "v5.0.12"
+    hash = "sha256-PhCb3wVSzuIXxZxM7aB3MdMLK3nnvUMhaMXk+p+H6Ec="
   [mod."github.com/go-playground/locales"]
     version = "v0.14.1"
     hash = "sha256-BMJGAexq96waZn60DJXZfByRHb8zA/JP/i6f/YrW9oQ="
