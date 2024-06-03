@@ -7,7 +7,7 @@ import (
 	"github.com/a-h/templ"
 )
 
-func Articles() http.Handler {
-    return templ.Handler(components.Articles())
+func Articles() http.HandlerFunc {
+    return templ.Handler(components.Articles()).ServeHTTP
 }
 

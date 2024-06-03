@@ -7,6 +7,6 @@ import (
 	"github.com/a-h/templ"
 )
 
-func Experience() http.Handler {
-    return templ.Handler(components.Experience())
+func Experience() http.HandlerFunc {
+    return templ.Handler(components.Experience()).ServeHTTP
 }

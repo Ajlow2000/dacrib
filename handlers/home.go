@@ -8,7 +8,7 @@ import (
 )
 
 
-func Home() http.Handler {
-    return templ.Handler(components.Home())
+func Home() http.HandlerFunc {
+    return templ.Handler(components.Home()).ServeHTTP
 }
 

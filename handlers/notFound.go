@@ -7,8 +7,6 @@ import (
 	"github.com/a-h/templ"
 )
 
-
-func About() http.HandlerFunc {
-    return templ.Handler(components.About()).ServeHTTP
+func NotFound() http.HandlerFunc {
+    return templ.Handler(components.NotFound()).ServeHTTP
 }
-
