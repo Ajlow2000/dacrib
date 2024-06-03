@@ -1,6 +1,38 @@
 package components
 
 
+templ baseStyles() {
+    <style type="text/css">
+        body {
+            display: flex;
+            flex-direction: column;
+            width: device-width;
+            position: relative;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #ccc;
+            height: 25px;
+            width: 100%;
+        }
+
+        main {
+            flex: auto;
+            width: 100%;
+            padding-bottom: 3rem;
+        }
+
+        footer {
+            background-color: #999;
+            height: 25px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            height: auto;
+        }
+    </style>
+}
+
 templ baseDoc(docTitle string) {
     <html lang="en">
 
@@ -9,20 +41,20 @@ templ baseDoc(docTitle string) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{docTitle}</title>
         <script src="../web/htmx_2.0.0-beta4.min.js"></script>
+        @baseStyles()
     </head>
 
     <body>
-        @Header()
+        <header>
+            @Header()
+        </header>
 
-        <main id="main-container">
-            <div id="main-content">
-                { children... }
-            </div>
+        <main>
+            { children... }
         </main>
 
-        <footer id="footer">
+        <footer>
             <p>Author: Alec Lowry</p>
-            <p><a href="mailto:hege@example.com">hege@example.com</a></p>
         </footer>
     </body>
 
