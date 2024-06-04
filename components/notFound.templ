@@ -1,12 +1,13 @@
 package components
 
-templ NotFound() {
+templ NotFound(path templ.SafeURL) {
     <!DOCTYPE html>
     <html>
     <body>
       <p>This Page does not exist</p>
       <br>
-      <a href="/">Go Home</a>
+      <a href={ path }>Go to { string(path) }</a>
     </body>
     </html>
 }
+

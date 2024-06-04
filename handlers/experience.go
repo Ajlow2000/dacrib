@@ -4,9 +4,8 @@ import (
 	"net/http"
 
 	"github.com/Ajlow2000/dacrib/components"
-	"github.com/a-h/templ"
 )
 
-func Experience() http.HandlerFunc {
-    return templ.Handler(components.Experience()).ServeHTTP
+func Experience(w http.ResponseWriter, r *http.Request) {
+    components.Experience().Render(r.Context(), w)
 }

@@ -7,6 +7,10 @@ import (
 	"github.com/a-h/templ"
 )
 
-func NotFound() http.HandlerFunc {
-    return templ.Handler(components.NotFound()).ServeHTTP
+func NotFound(w http.ResponseWriter, r *http.Request) {
+	components.NotFound(templ.SafeURL("/")).Render(r.Context(), w)
+}
+
+func NotFoundGoArticles(w http.ResponseWriter, r *http.Request) {
+	components.NotFound(templ.SafeURL("/articles")).Render(r.Context(), w)
 }

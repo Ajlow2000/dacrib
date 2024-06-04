@@ -4,11 +4,10 @@ import (
 	"net/http"
 
 	"github.com/Ajlow2000/dacrib/components"
-	"github.com/a-h/templ"
 )
 
 
-func About() http.HandlerFunc {
-    return templ.Handler(components.About()).ServeHTTP
+func About(w http.ResponseWriter, r *http.Request) {
+    components.About().Render(r.Context(), w)
 }
 
