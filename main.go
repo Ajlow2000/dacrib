@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/Ajlow2000/dacrib/handlers"
@@ -28,5 +29,6 @@ func main() {
 
     r.NotFound(handlers.NotFound)
 
+    fmt.Println("Server started")
     http.ListenAndServe(":3333", r)
 }
