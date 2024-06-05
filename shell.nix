@@ -24,6 +24,7 @@ pkgs.mkShell {
     pkgs.vscode-langservers-extracted
     pkgs.templ
     pkgs.just
+    pkgs.air
     goEnv
     gomod2nix
   ];
