@@ -7,5 +7,5 @@ import (
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
-    components.Home().Render(r.Context(), w)
+	components.Home().Render(r.Context(), w)
 }

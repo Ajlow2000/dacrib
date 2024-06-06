@@ -7,5 +7,5 @@ import (
 )
 
 func Experience(w http.ResponseWriter, r *http.Request) {
-    components.Experience().Render(r.Context(), w)
+	components.Experience().Render(r.Context(), w)
 }

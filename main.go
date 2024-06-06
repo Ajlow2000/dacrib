@@ -3,32 +3,31 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"github.com/Ajlow2000/dacrib/handlers"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
-
-
 func main() {
-    r := chi.NewRouter()
+	PORT := 3333
 
-    r.Use(middleware.Logger)
-    r.Use(middleware.CleanPath)
-    r.Use(middleware.Recoverer)
-    // r.Mount("/debug", middleware.Profiler()) // todo - look into pprof
+	r := chi.NewRouter()
 
-    r.Get("/", handlers.Home)
-    r.Get("/home", handlers.Home)
-    // http.Handle("/home", http.RedirectHandler("/", http.StatusPermanentRedirect))
-    r.Get("/articles", handlers.Articles)
-    r.Get("/articles/{title}", handlers.ShowArticle)
-    r.Get("/experience", handlers.Experience)
-    r.Get("/about", handlers.About)
+	r.Use(middleware.Logger)
+	r.Use(middleware.CleanPath)
+	r.Use(middleware.Recoverer)
 
-    r.NotFound(handlers.NotFound)
+	r.Get("/", handlers.Home)
+	r.Get("/home", handlers.Home)
+	r.Get("/articles", handlers.Articles)
+	r.Get("/articles/{title}", handlers.ShowArticle)
+	r.Get("/experience", handlers.Experience)
+	r.Get("/about", handlers.About)
 
-    fmt.Println("Server started")
-    http.ListenAndServe(":3333", r)
+	r.NotFound(handlers.NotFound)
+
+	fmt.Println("Server started")
+	http.ListenAndServe(":"+strconv.Itoa(PORT), r)
 }
