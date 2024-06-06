@@ -1,0 +1,44 @@
+package components
+
+
+import (
+)
+
+templ Header() {
+    @navBar()
+}
+
+css navBarFlexBox() {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+css siteNavEntriesFlexBox() {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+templ navBar() {
+    <nav id="site-nav-bar" class={ navBarFlexBox() }>
+        @navButton("Home", templ.SafeURL("/home"))
+
+        <div class={ siteNavEntriesFlexBox() }>
+            @navButton("Articles", templ.SafeURL("/articles"))
+            @navButton("Experience", templ.SafeURL("/experience"))
+            @navButton("About", templ.SafeURL("/about"))
+        </div>
+    </nav>
+}
+
+templ navButton(label string, link templ.SafeURL) {
+    <a href={ link }>
+        <button type="button">
+            {label}
+        </button>
+    </a>
+}
